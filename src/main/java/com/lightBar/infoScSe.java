@@ -6,11 +6,15 @@ import jssc.SerialPortException;
 import net.runelite.api.Actor;
 import net.runelite.api.SpriteID;
 import net.runelite.api.widgets.Widget;
+
 import net.runelite.api.widgets.WidgetID;
 import org.pushingpixels.substance.internal.utils.WidgetUtilities;
 
-public class infoScSe{
+import javax.inject.Inject;
 
+public class infoScSe{
+    @Inject LightBarConfig config;
+    public SerialPort serialPort = new SerialPort(config.COMP());
 public String comboString;
 public Actor myActor;
 public Widget widget;
@@ -38,7 +42,8 @@ public String prevString;
 
     public void send(){
         prevString = comboString;
-        SerialPort serialPort = new SerialPort("COM1");
+
+
         try {
             serialPort.openPort();
 

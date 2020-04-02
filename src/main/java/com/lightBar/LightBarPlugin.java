@@ -23,9 +23,9 @@ public class LightBarPlugin extends Plugin
 {
 	@Inject
 	private Client client;
-	private SerialPort serialPort = new SerialPort("COM1");
+	@Inject LightBarConfig config;
+	private SerialPort serialPort = new SerialPort(config.COMP());
 	@Inject
-	private LightBarConfig config;
 	@Override
 	protected void startUp() throws Exception
 	{String[] portNames = SerialPortList.getPortNames();
@@ -79,7 +79,6 @@ public class LightBarPlugin extends Plugin
 	{
 		if (gameStateChanged.getGameState() == GameState.LOGGED_IN)
 		{
-			client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", "Example says " + config.greeting(), null);
 		}
 	}
 
