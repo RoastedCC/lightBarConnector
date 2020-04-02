@@ -10,7 +10,7 @@ import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
-import jssc.*;
+import com.lightBar.jssc.*;
 
 import java.io.IOException;
 
